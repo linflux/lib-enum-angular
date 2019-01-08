@@ -129,6 +129,41 @@
           }
         }
       }
+    },
+    "teste": {
+      "root": "projects/teste",
+      "sourceRoot": "projects/teste/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/teste/tsconfig.lib.json",
+            "project": "projects/teste/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/teste/src/test.ts",
+            "tsConfig": "projects/teste/tsconfig.spec.json",
+            "karmaConfig": "projects/teste/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/teste/tsconfig.lib.json",
+              "projects/teste/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "enum-service"
